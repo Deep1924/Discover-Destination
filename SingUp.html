@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sing.css">
+</head>
+<body>
+
+    <script>
+        function validateForm(event) {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("pwd").value;
+            var confirmPassword = document.getElementById("confirm_pwd").value;
+
+            // Email validation: check if it's in the correct format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (email === "") {
+                alert("Email is required.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            // Password validation: Check if password is at least 6 characters long
+            if (password === "") {
+                alert("Password is required.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            } else if (password.length < 6) {
+                alert("Password should be at least 6 characters long.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            // Confirm Password validation: Check if it matches the password
+            if (confirmPassword === "") {
+                alert("Confirm Password is required.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            } else if (confirmPassword !== password) {
+                alert("Passwords do not match.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+        }
+    </script>
+
+    <div class="container">
+        <div class="sign">
+            <div class="item">
+                <h1>Sign Up</h1>
+                <div class="input">
+                    <form onsubmit="validateForm(event)">
+                        <input type="text" id="email" placeholder=" Email Id" ><br>
+                        <input type="password" id="pwd" placeholder=" Create Password" ><br>
+                        <input type="password" id="confirm_pwd" placeholder=" Confirm Password"><br>
+                        <div class="but">
+                            <button type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+                <h3>Already have an account? <a href="Login.html">Login</a></h3>
+                <h3>Go Back to <a href="main.html">Home</a></h3> <br><br> 
+                <div class="but">
+                    <button id="facebook"><img src="fac.webp" alt="facebook"> Login With Facebook</button>
+                    <button id="google"><img src="google1.png" alt="google"> Login With Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

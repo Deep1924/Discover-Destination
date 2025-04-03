@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <script>
+        function validateForm(event) {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("pwd").value;
+
+            // Email validation: check if it's in the correct format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (email === "") {
+                alert("Email is required.");
+                event.preventDefault(); // Prevent form submission
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault(); // Prevent form submission
+            } else if (password === "") {
+                alert("Password is required.");
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+    </script>
+
+    <div class="container">
+        <div class="sign">
+            <div class="item">
+                <h1>Login</h1>
+                <div class="input">
+                    <form onsubmit="validateForm(event)">
+                        <input type="text" id="email" placeholder=" Email Id"><br>
+                        <input type="password" id="pwd" placeholder=" Password"><br>
+                        <div class="but">
+                            <button type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <h3>Forgot? <a href="#">Password</a></h3>
+                <h3>Don't have an account? <a href="SingUp.html">Sign Up</a></h3>
+                <h3>Go Back to <a href="main.html">Home</a></h3> <br><br> 
+                <div class="but">
+                    <button id="facebook"><img src="fac.webp" alt="facebook"> Login With Facebook</button>
+                    <button id="google"><img src="google1.png" alt="google"> Login With Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
